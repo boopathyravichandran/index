@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Accident-Management-Client-List</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="hello1.css" />
+  <link
+  rel="stylesheet"
+  href="https://unicons.iconscout.com/release/v4.0.8/css/line.css"
+/>
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+/>
+</head>
+<style>
+    body {
+  margin: 0;
+}
+
+.grid-container {
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 4% 96%;
+}
+
+.grid-left {
+  flex: 1;
+  overflow-y: hidden;
+  border-right: 1px solid #ccc;
+}
+
+.grid-right {
+  flex: 1;
+  overflow-y: auto;
+}
+a{
+  text-decoration: none;
+  color: black;
+}
+
+</style>
+<body>
+    <div class="fixed-element">
+        <div class="content">
+          <div class="child">
+            <img src="image/image2.png" />
+            <p>Carcc</p>
+          </div>
+          <div class="child1">
+            <i class="uil uil-search"></i>
+            <input
+              id="filter-input"
+              type="Search for clients,vehicles"
+              placeholder="Search for clients,vehicles"
+            />
+          </div>
+          <div class="child2">
+            <a href="#" class="uil uil-plus"></a></i>
+            <i class="uil uil-bell"style="
+            color: rgb(126,131,151);
+        "></i>
+            <i class="uil uil-calendar-alt" style="
+            color: rgb(126,131,151);
+        "></i>
+            <img
+              src="data:image/png;base64,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"
+            />
+            <div class="w1">
+              <p>Boopathy</p>
+              <h7>Admin</h7>
+            </div>
+    
+            <i class="uil uil-angle-down"></i>
+          </div>
+        </div>
+    </div>
+  <div class="grid-container">
+    <div class="grid-left">
+ <div class="demo">
+        <a href="#" class="uil uil-estate"></a>
+        <a href="#" class="uil uil-users-alt"></a>
+        <a href="#" class="uil uil-car"></a>
+        <a href="#" class="uil uil-diamond"></a>
+        <a href="#" class="uil uil-user-check"></a>
+        <a href="#" class="uil uil-favorite"></a>
+        <a href="#" class="uil uil-apps"></a>
+        <div class="event">
+          <a href="#" class="uil uil-comment-alt-question"></a>
+          <a href="#" class="uil uil-setting"></a>
+          <div class="gl">
+            <p id="time" style=" font-size: 14px;">2:44:14 PM</p>
+          </div>
+          
+          
+        </div>
+       
+        </div>
+    </div>
+    <div class="grid-right">
+        <div class="vertical-line">
+            <div class="vbro">
+        <div class="base0">
+          <p style="font-size: 23px;
+          font-weight: 500;padding-inline: 18px;">Clients</p>
+          <div class="base">
+            <div class="one">
+            <a href="#" class="uil uil-document-info">Export</a></i>
+          </div>
+          <div class="two">
+            <a id="newButton" onclick="openModal()" href="#" class="uil uil-plus">Add New</a>
+            <div class="popup" id="popup">
+            <form onsubmit="onFormSubmit();" id="my-form">
+              <div>
+                <label>Client</label>
+                <input type="text" name="fullName" id="fullName" />
+              </div>
+              <div>
+                <label>Case Ref</label>
+                <input type="text" name="client" id="client" />
+              </div>
+              <div>
+                <label>Opened at</label>
+                <input type="text" name="salary" id="salary" />
+              </div>
+              <div>
+                <label>DOA</label>
+                <input type="text" name="city" id="city" />
+              </div>
+              <div>
+                <label>Source</label>
+                <input type="text" name="pass" id="pass" />
+              </div>
+              <div>
+                <label>Ser.Provider</label>
+                <input type="text" name="one" id="one" />
+              </div>
+              <div>
+                <label>serives</label>
+                <input type="text" name="two" id="two" />
+              </div>
+              <div style="margin-top: 24px;">
+                  <label></label>
+                  <input type="text" name="tw" id="tw" />
+                </div>
+              <div>
+                <label>Case Ref</label>
+                <input type="text" name="three" id="three" />
+              </div>
+              <div class="form-action-buttons">
+                  <input type="submit" id="submit" value="Save" />
+                  <button style="margin-top: 20px;
+                  padding: 2px;
+                  margin-left: 14px;" type="button" onclick="closeModal()">Cancel</button>
+                </div>  
+          </form>
+          
+          </div>
+          </div>
+          </div>
+         </div>
+        </div>
+        <div class="p">
+          <p>View All Your Client Information.</p>
+        </div>
+      
+        <div class="a1">
+          <a class="tablinks" onclick="openCity(event, 'All Client80')" href="#">All Client <span style="background-color: rgb(241,243,246);border-radius: 20px;
+            padding: 3px;">80</span></a>
+          <a class="tablinks" onclick="openCity(event, 'Leads 40')" href="#">Leads <span style="background-color: rgb(241,243,246);border-radius: 20px;
+            padding: 3px;">40</span></a>
+          <a class="tablinks" onclick="openCity(event, 'Ongoing 20')" href="#">Ongoing <span style="background-color: rgb(241,243,246);border-radius: 20px;
+            padding: 3px;">20</span></a>
+          <a class="tablinks" onclick="openCity(event, 'Payment Back 25')" href="#">Payment Back <span style="background-color: rgb(241,243,246);border-radius: 20px;
+            padding: 3px;">25</span></a>
+          <a class="tablinks" onclick="openCity(event, 'Closed 05')" href="#">Closed <span style="background-color: rgb(241,243,246);border-radius: 20px;
+            padding: 3px;">05</span></a>
+        </div>
+        <div class="child4">
+          <div class="no"style="
+         border: 1px solid rgb(240 240 240);
+    padding-inline: 8px;
+    border-radius: 4px;
+      ">
+        <div class="child5">
+        
+          <i class="uil uil-search"></i>
+          <input id="uy"
+            type="Search for clients"
+            placeholder="Search for clients"
+          />
+        
+          </div>
+        </div>
+        <div class="food">
+          <div class="food1">
+          <a href="#" class="uil uil-calendar-alt">Jan6,2023-Jan10,2021</a></i>
+        </div>
+          <div class="food2">
+          <a href="#"i class="uil uil-align-center-alt">Filter</a></i>
+        </div>
+        </div>
+        </div>
+        <!-- <div id="listingTable"> -->
+        <div id="All Client80" class="tabcontent">
+          <td>
+            <table class="list" id="employeeLis" id="listingTable">
+              <thead>
+                <tr>
+                  <th>client</th>
+                  <th>Case Ref</th>
+                  <th>Opened at</th>
+                  <th>DOA</th>
+                  <th>Source</th>
+                  <th>Ser.Provider</th>
+                  <th>services</th>
+                  <th></th>
+                  <th>Case Ref</th>
+                  <!-- <th>Edit</th>
+                  <th>Delete</th> -->
+                </tr>
+              </thead> 
+              <tbody></tbody>
+            </table>
+          </td> 
+       </div>
+       <div id="Leads 40" class="tabcontent" >
+        <td>
+          <table class="list" id="anotherElementId" id="listingTable">
+            <thead>
+              <tr>
+                  <th>client</th>
+                  <th>Case Ref</th>
+                  <th>Opened at</th>
+                  <th>DOA</th>
+                  <th>Source</th>
+                  <th>Ser.Provider</th>
+                  <th>services</th>
+                  <th></th>
+                  <th>Case Ref</th>
+                <!-- <th>Edit</th>
+                <th>Delete</th> -->
+              </tr>
+            </thead>  
+            <tbody></tbody>
+          </table>
+        </td> 
+     </div>
+     <div id="Ongoing 20" class="tabcontent">
+      <td>
+        <table class="list" id="employeeTable"id="listingTable">
+          <thead>
+            <tr>
+              <th>client</th>
+                <th>Case Ref</th>
+                <th>Opened at</th>
+                <th>DOA</th>
+                <th>Source</th>
+                <th>Ser.Provider</th>
+                <th>services</th>
+                <th></th>
+                <th>Case Ref</th>
+              <!-- <th>Edit</th>
+              <th>Delete</th> -->
+            </tr>
+          </thead>  
+          <tbody></tbody>
+        </table>
+      </td> 
+   </div>
+   <div id="Payment Back 25" class="tabcontent">
+      <td>
+        <table class="list" id="employeeTable"id="listingTable">
+          <thead>
+            <tr>
+              <th>client</th>
+              <th>Case Ref</th>
+              <th>Opened at</th>
+              <th>DOA</th>
+              <th>Source</th>
+              <th>Ser.Provider</th>
+              <th>services</th>
+              <th></th>
+              <th>Case Ref</th>
+              <!-- <th>Edit</th>
+              <th>Delete</th> -->
+            </tr>
+          </thead>  
+          <tbody></tbody>
+        </table>
+      </td> 
+   </div>
+   <div id="Closed 05" class="tabcontent">
+      <td>
+        <table class="list" id="employeeTable"id="listingTable">
+          <thead>
+            <tr>
+              <th>client</th>
+                <th>Case Ref</th>
+                <th>Opened at</th>
+                <th>DOA</th>
+                <th>Source</th>
+                <th>Ser.Provider</th>
+                <th>services</th>
+                <th></th>
+                <th>Case Ref</th>
+              <!-- <th>Edit</th>
+              <th>Delete</th> -->
+            </tr>
+          </thead>  
+          <tbody></tbody>
+        </table>
+      </td> 
+   </div>
+   </div>
+  </div>
+    </div>
+  </div>
+</body>
+<script>
+    function openModal() {
+      document.getElementById('popup').style.display = 'block';
+    }
+    function closeModal() {
+      document.getElementById('popup').style.display = 'none';
+    }
+    function onFormSubmit() {
+    closeModal();
+    }
+  </script>
+  <script>
+    function openCity(evt, cityName) {
+      var i, tabcontent, tablinks;
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      }
+      tablinks = document.getElementsByClassName("tablinks");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+      }
+      console.log(evt,document.getElementById(cityName))
+      window.cityname = cityName
+      document.getElementById(cityName).style.display = "block";
+      evt.currentTarget.className += " active";
+    }
+  </script>
+ 
+  <script>
+    function openModal() {
+      var popup = document.getElementById("popup");
+      popup.style.display = "block";
+    }
+    function closeModal() {
+      var popup = document.getElementById("popup");
+      popup.style.display = "none";
+    }
+    function onFormSubmit() {
+      event.preventDefault();
+      var form = document.querySelector('#my-form');
+      var elements = form.elements;
+      let table = document.getElementById(window.cityname || "All Client80").querySelector('table tbody')
+      console.log(elements)
+      let tr = document.createElement('tr')
+      let td1 = document.createElement('td')
+      td1.innerText=`${elements['fullName'].value}`
+      let td2 = document.createElement('td')
+      td2.innerText=`${elements['client'].value}`
+      let td3 = document.createElement('td')
+      td3.innerText=`${elements['salary'].value}`
+      let td4 = document.createElement('td')
+      td4.innerText=`${elements['city'].value}`
+      let td5 = document.createElement('td')
+      td5.innerText=`${elements['pass'].value}`
+      let td6 = document.createElement('td')
+      td6.innerText=`${elements['one'].value}`
+      let td7 = document.createElement('td')
+      td7.innerText=`${elements['two'].value}`
+      let td8 = document.createElement('td' )
+      td8.innerText=`${elements['tw'].value}`
+      let td9 = document.createElement('td')
+      td9.innerText=`${elements['three'].value}`
+      
+      tr.appendChild(td1)
+      tr.appendChild(td2)
+      tr.appendChild(td3)
+      tr.appendChild(td4)
+      tr.appendChild(td5)
+      tr.appendChild(td6)
+      tr.appendChild(td7)
+      tr.appendChild(td8)
+      tr.appendChild(td9)
+
+      table.appendChild(tr)     
+      closeModal();
+      form.reset();
+    }
+  </script>
+  <script>
+    
+    function updateTime() {
+        var now = new Date();
+        var timeElement = document.getElementById("time");
+        timeElement.innerHTML = now.toLocaleTimeString();
+      }
+      setInterval(updateTime, 1000);
+  </script>
+  <script>
+//   const openPopupButton = document.getElementById('popup');
+//   const popupContainer = document.getElementById('popupContainer');
+//   openPopupButton.addEventListener('click', () => {
+//     popupContainer.style.display = 'block';
+//   });
+  
+//   const submitButton = document.getElementById('submit');
+//   const dataInput = document.getElementById('popup');
+//   submitButton.addEventListener('click', () => {
+//     const data = dataInput.value;
+//     console.log('Submitted data:', data);
+//     popup.style.display = 'none';
+//   });
+
+
+  function Next(){
+    
+  }
+  
+    </script>
+</html>
