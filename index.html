@@ -3,7 +3,9 @@
 <head>
   <title>Accident-Management-Client-List</title>
   <link rel="stylesheet" href="styles.css">
+  
   <link rel="stylesheet" href="hello1.css" />
+  
   <link
   rel="stylesheet"
   href="https://unicons.iconscout.com/release/v4.0.8/css/line.css"
@@ -51,7 +53,7 @@ a{
             <p>Carcc</p>
           </div>
           <div class="child1">
-            <i class="uil uil-search"></i>
+            <i class="uil uil-search"style="color:rgb(184 184 184);"></i>
             <input
               id="filter-input"
               type="Search for clients,vehicles"
@@ -59,13 +61,19 @@ a{
             />
           </div>
           <div class="child2">
+            <div style=" display: flex; align-items: center; margin-right: -17px; gap: 15px;">
             <a href="#" class="uil uil-plus"></a></i>
+            <hr style=" height: 28px; color: gainsboro;">
+          </div>
+            <div style=" display: flex; align-items: center; gap: 2px;">
             <i class="uil uil-bell"style="
             color: rgb(126,131,151);
-        "></i>
+        "> <span><img src="data:image/png;base64,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"style=" width: 8px; position: relative; bottom: 11px; right: 15px;"></i></span>
             <i class="uil uil-calendar-alt" style="
             color: rgb(126,131,151);
         "></i>
+        </div>
+       <div style=" display: flex;align-items: center;">
             <img
               src="data:image/png;base64,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"
             />
@@ -73,9 +81,10 @@ a{
               <p>Boopathy</p>
               <h7>Admin</h7>
             </div>
-    
+          
             <i class="uil uil-angle-down"></i>
           </div>
+        </div>
         </div>
     </div>
   <div class="grid-container">
@@ -128,7 +137,7 @@ a{
               </div>
               <div>
                 <label>DOA</label>
-                <input type="text" name="city" id="city" />
+                <input type="text" name="city" id="city" placeholder="MM/DD/YYY" />
               </div>
               <div>
                 <label>Source</label>
@@ -143,7 +152,7 @@ a{
                 <input type="text" name="two" id="two" />
               </div>
               <div style="margin-top: 24px;">
-                  <label></label>
+                  <label></label> 
                   <input type="text" name="tw" id="tw" />
                 </div>
               <div>
@@ -154,7 +163,7 @@ a{
                   <input type="submit" id="submit" value="Save" />
                   <button style="margin-top: 20px;
                   padding: 2px;
-                  margin-left: 14px;" type="button" onclick="closeModal()">Cancel</button>
+                  margin-left: 14px;" type="reset" onclick="closeModal()">Cancel</button>
                 </div>  
           </form>
           
@@ -168,16 +177,16 @@ a{
         </div>
       
         <div class="a1">
-          <a class="tablinks" onclick="openCity(event, 'All Client80')" href="#">All Client <span style="background-color: rgb(241,243,246);border-radius: 20px;
-            padding: 3px;">80</span></a>
-          <a class="tablinks" onclick="openCity(event, 'Leads 40')" href="#">Leads <span style="background-color: rgb(241,243,246);border-radius: 20px;
-            padding: 3px;">40</span></a>
-          <a class="tablinks" onclick="openCity(event, 'Ongoing 20')" href="#">Ongoing <span style="background-color: rgb(241,243,246);border-radius: 20px;
-            padding: 3px;">20</span></a>
-          <a class="tablinks" onclick="openCity(event, 'Payment Back 25')" href="#">Payment Back <span style="background-color: rgb(241,243,246);border-radius: 20px;
-            padding: 3px;">25</span></a>
-          <a class="tablinks" onclick="openCity(event, 'Closed 05')" href="#">Closed <span style="background-color: rgb(241,243,246);border-radius: 20px;
-            padding: 3px;">05</span></a>
+          <a class="tablinks" onclick="openCity(event, 'All Client80')" href="#">All Client <span style="background-color: rgb(241,243,246);border-radius: 14px;
+            padding: 1px;">80</span></a>
+          <a class="tablinks" onclick="openCity(event, 'Leads 40')" href="#">Leads <span style="background-color: rgb(241,243,246);border-radius: 14px;
+            padding: 1px;">40</span></a>
+          <a class="tablinks" onclick="openCity(event, 'Ongoing 20')" href="#">Ongoing <span style="background-color: rgb(241,243,246);border-radius: 14px;
+            padding: 1px;">20</span></a>
+          <a class="tablinks" onclick="openCity(event, 'Payment Back 25')" href="#">Payment Back <span style="background-color: rgb(241,243,246);border-radius: 14px;
+            padding: 1px;">25</span></a>
+          <a class="tablinks" onclick="openCity(event, 'Closed 05')" href="#">Closed <span style="background-color: rgb(241,243,246);border-radius: 14px;
+            padding: 1px;">05</span></a>
         </div>
         <div class="child4">
           <div class="no"style="
@@ -197,7 +206,7 @@ a{
         </div>
         <div class="food">
           <div class="food1">
-          <a href="#" class="uil uil-calendar-alt">Jan6,2023-Jan10,2021</a></i>
+          <a  href="#" class="uil uil-calendar-alt">Jan6,2023-Jan10,2021</a></i>
         </div>
           <div class="food2">
           <a href="#"i class="uil uil-align-center-alt">Filter</a></i>
