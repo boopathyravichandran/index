@@ -110,7 +110,7 @@ img {
 .vertical-line {
   border-left: 1px solid gainsboro;
   height: 100%;
-  margin-top: 65px;
+  padding-top: 60px;
 }
 .base0 {
   display: flex;
@@ -152,6 +152,7 @@ a {
   gap: 21px;
   padding-inline: 6px;
   padding: 12px;
+  padding-bottom: 23px;
 }
 .child4 {
   display: flex;
@@ -316,10 +317,15 @@ label.validation-error {
   width: 0;
   left: 0;
   bottom: -10px;
-  transition: 0.3s;
+  text-decoration: underline;
+  position: fixed;
 }
 .a1 a.tablinks.active {
+  /* padding-bottom: 5px; */
   color: #0000ee;
+  background-color: rgb(244, 249, 253);
+  /* padding: 5px; */
+  border-radius: 6px;
 }
 .a1 a:hover {
 }
